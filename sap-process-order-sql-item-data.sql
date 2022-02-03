@@ -1,0 +1,30 @@
+CREATE TABLE `sap_process_order_item_data`
+(
+	`ManufacturingOrder`                       　varchar(12) NOT NULL,
+	`ManufacturingOrderItem`                   　varchar(4) NOT NULL,
+	`ManufacturingOrderCategory`               　varchar(2) DEFAULT NULL,
+	`ManufacturingOrderType`                   　varchar(4) DEFAULT NULL,
+	`IsCompletelyDelivered`                    　tinyint(1) DEFAULT NULL,
+	`Material`                                 　varchar(40) DEFAULT NULL,
+	`ProductionPlant`                          　varchar(4) DEFAULT NULL,
+	`Plant`                                    　varchar(4) DEFAULT NULL,
+	`MRPArea`                                  　varchar(10) DEFAULT NULL,
+	`QuantityDistributionKey`                  　varchar(4) DEFAULT NULL,
+	`MaterialGoodsReceiptDuration`             　varchar(1) DEFAULT NULL,
+	`StorageLocation`                          　varchar(4) DEFAULT NULL,
+	`Batch`                                    　varchar(10) DEFAULT NULL,
+	`InventoryUsabilityCode`                   　varchar(1) DEFAULT NULL,
+	`GoodsRecipientName`                       　varchar(12) DEFAULT NULL,
+	`UnloadingPointName`                       　varchar(25) DEFAULT NULL,
+	`StockSegment`                             　varchar(40) DEFAULT NULL,
+	`MfgOrderItemPlndDeliveryDate`             　varchar(80) DEFAULT NULL,
+	`MfgOrderItemActualDeliveryDate`           　varchar(80) DEFAULT NULL,
+	`ProductionUnit`                           　varchar(3) DEFAULT NULL,
+	`MfgOrderItemPlannedTotalQty`              　varchar(80) DEFAULT NULL,
+	`MfgOrderItemPlannedScrapQty`              　varchar(80) DEFAULT NULL,
+	`MfgOrderItemGoodsReceiptQty`              　varchar(80) DEFAULT NULL,
+	`MfgOrderItemActualDeviationQty`           　varchar(80) DEFAULT NULL,
+    PRIMARY KEY (`ManufacturingOrder`, `ManufacturingOrderItem`),
+    CONSTRAINT `SAPProcessOrderItemData_fk` FOREIGN KEY (`ManufacturingOrder`) REFERENCES `sap_process_order_general_data` (`ManufacturingOrder`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
